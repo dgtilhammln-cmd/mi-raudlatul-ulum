@@ -89,7 +89,7 @@ chmod -R 775 public/storage
 
 ### 6. Import database
 ```bash
-mysql -u u664715641_MTI -p"#Ilhammaulana23" u664715641_MTI < database/hostinger_deploy.sql
+mysql -u u664715641_MTI -p"#Ilhammaulana23" u664715641_MTI < database/mi_raudlatul_ulum.sql
 ```
 
 ### 7. Jalankan artisan

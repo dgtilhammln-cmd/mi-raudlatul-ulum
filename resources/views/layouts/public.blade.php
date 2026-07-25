@@ -139,7 +139,7 @@
         </div>
         <div>
             @auth
-                <a href="{{ auth()->user()->isOrganizer() || auth()->user()->isAdmin() ? route('organizer.dashboard') : route('peserta.dashboard') }}" class="btn-login">Dashboard</a>
+                <a href="{{ auth()->user()->isOrganizer() ? route('organizer.dashboard') : route('peserta.dashboard') }}" class="btn-login">Dashboard</a>
             @else
                 <a href="{{ route('login') }}" class="btn-login">Login Peserta</a>
             @endauth

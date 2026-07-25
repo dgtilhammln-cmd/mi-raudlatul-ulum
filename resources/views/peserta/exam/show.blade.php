@@ -314,42 +314,24 @@
         let violationInFlight = false;
 
         function reportViolation(type) {
-            // Debounce focus-loss events (tab_switch, window_blur, fullscreen_exit)
-            // These 3 events all fire simultaneously when user switches tab
+            // Debounce focus-loss events
             if (FOCUS_LOSS_TYPES.includes(type)) {
                 const now = Date.now();
                 if (now - lastFocusLossTime < FOCUS_LOSS_COOLDOWN_MS) {
-                    console.log(`[Anti-Cheat] Skipped duplicate focus-loss event: ${type} (cooldown active)`);
-                    return; // Skip — already counted this tab-switch action
+                    return; // Skip
                 }
                 lastFocusLossTime = now;
-                type = 'tab_switch'; // Normalize all focus-loss to one type
+                type = 'tab_switch';
             }
 
-            // Prevent rapid-fire duplicate requests
-            if (violationInFlight) {
-                console.log(`[Anti-Cheat] Skipped: request already in-flight`);
-                return;
-            }
+            if (violationInFlight) return;
             violationInFlight = true;
 
             fetch(VIOLATION_URL, {
-                method:'POST',
-                headers:{'Content-Type':'application/json','X-CSRF-TOKEN':CSRF,'Accept':'application/json'},
-                body:JSON.stringify({type:type})
-            }).then(r=>r.json()).then(d=>{
-                violationInFlight = false;
-                document.getElementById('vCount').textContent = d.total;
-                
-                // Play warning sound
-                const audio = document.getElementById('warningSound');
-                audio.play().catch(e=>console.log("Audio play failed:", e));
-
-                if(d.auto_submit) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken,
+                    'X-CSRF-TOKEN': CSRF,
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({ type: type })
@@ -358,6 +340,10 @@
             .then(data => {
                 if(data.status === 'success') {
                     document.getElementById('vCount').innerText = data.violation_count;
+                    
+                    const audio = document.getElementById('warningSound');
+                    if(audio) audio.play().catch(e=>console.log("Audio play failed:", e));
+
                     if(typeof showAlert === 'function') {
                         showAlert('⚠️ Peringatan Pelanggaran!', `Aktivitas mencurigakan terdeteksi (${data.violation_count}/${data.max_violations}). Jika melewati batas, ujian akan otomatis diakhiri.`, 'warning');
                     } else {
@@ -365,14 +351,12 @@
                     }
 
                     if(data.action === 'auto_submitted') {
-                        isSubmitting = true;
                         window.location.href = "{{ route('peserta.result', $session->id) }}";
                     }
                 }
             })
             .catch(err => console.error('Violation Error:', err))
             .finally(() => {
-                // Beri jeda 1.5 detik sebelum bisa kirim pelanggaran lagi (debounce)
                 setTimeout(() => {
                     violationInFlight = false;
                 }, 1500);

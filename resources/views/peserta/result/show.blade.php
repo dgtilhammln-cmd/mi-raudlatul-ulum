@@ -46,7 +46,7 @@
     
     <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #bbf7d0;border-radius:20px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#1db349,#a5cf36);padding:16px 20px;">
-            <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;"><i class="fas fa-certificate" style="margin-right:6px;"></i>E-Sertifikat</h3>
+            <h3 style="font-size:14px;font-weight:800;color:#fff;margin:0;"><i class="fas fa-certificate" style="margin-right:6px;"></i>E-Sertifikat / Raport</h3>
         </div>
         <div style="padding:24px;">
         @if($session->certificate)
@@ -54,9 +54,9 @@
                 <div style="width:64px;height:64px;background:linear-gradient(135deg,#1db349,#a5cf36);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 6px 20px rgba(29,179,73,0.3);">
                     <i class="fas fa-award" style="font-size:28px;color:#fff;"></i>
                 </div>
-                <p style="font-size:13px;color:#15803d;font-weight:600;margin-bottom:16px;">Sertifikat Anda sudah siap!</p>
+                <p style="font-size:13px;color:#15803d;font-weight:600;margin-bottom:16px;">Sertifikat / Raport Anda sudah siap!</p>
                 <a href="{{ route('peserta.certificate.download', $session->certificate) }}" class="btn btn-primary" target="_blank" style="background:linear-gradient(135deg,#1db349,#a5cf36);border:none;box-shadow:0 4px 16px rgba(29,179,73,0.35);">
-                    <i class="fas fa-download"></i> Unduh Sertifikat
+                    <i class="fas fa-download"></i> Unduh Sertifikat / Raport
                 </a>
             </div>
         @else
@@ -64,10 +64,10 @@
                 <div style="width:56px;height:56px;background:#dcfce7;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
                     <i class="fas fa-award" style="font-size:24px;color:#86efac;"></i>
                 </div>
-                <p style="font-size:13px;color:#16a34a;font-weight:600;margin-bottom:4px;">Sertifikat belum tersedia</p>
+                <p style="font-size:13px;color:#16a34a;font-weight:600;margin-bottom:4px;">Sertifikat / Raport belum tersedia</p>
                 <p style="font-size:12px;color:#4ade80;margin-bottom:16px;">Akan muncul jika penyelenggara sudah mengirimkannya.</p>
                 <a href="{{ route('peserta.events') }}" style="display:inline-flex;align-items:center;gap:6px;padding:8px 20px;background:linear-gradient(135deg,#1db349,#a5cf36);color:#fff;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(29,179,73,0.3);">
-                    <i class="fas fa-search"></i> Lihat Event &amp; E-Sertifikat
+                    <i class="fas fa-search"></i> Lihat Event &amp; E-Raport
                 </a>
             </div>
         @endif

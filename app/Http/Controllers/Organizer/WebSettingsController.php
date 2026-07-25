@@ -19,7 +19,8 @@ class WebSettingsController extends Controller
         $partners = PartnerLogo::partners()->get();
         $sponsors = PartnerLogo::sponsors()->get();
         $siteLogo = WebSetting::get('site_logo');
-        return view('organizer.web-settings.logos', compact('partners', 'sponsors', 'siteLogo'));
+        $siteFavicon = WebSetting::get('site_favicon');
+        return view('organizer.web-settings.logos', compact('partners', 'sponsors', 'siteLogo', 'siteFavicon'));
     }
 
     public function updateSiteLogo(Request $request)
@@ -45,6 +46,30 @@ class WebSettingsController extends Controller
         WebSetting::set('site_logo', $path);
 
         return back()->with('success', 'Logo utama website berhasil diperbarui.');
+    }
+
+    public function updateSiteFavicon(Request $request)
+    {
+        $request->validate([
+            'site_favicon' => 'required|file|mimes:png,ico|max:1024',
+        ]);
+
+        $file = $request->file('site_favicon');
+        if (!file_exists(public_path('storage/settings'))) {
+            mkdir(public_path('storage/settings'), 0755, true);
+        }
+        
+        $filename = 'site-favicon-' . time() . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('settings', $filename, 'public');
+
+        $oldFavicon = WebSetting::get('site_favicon');
+        if ($oldFavicon && Storage::disk('public')->exists($oldFavicon)) {
+            Storage::disk('public')->delete($oldFavicon);
+        }
+
+        WebSetting::set('site_favicon', $path);
+
+        return back()->with('success', 'Favicon website berhasil diperbarui.');
     }
 
     public function storeLogo(Request $request)

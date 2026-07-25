@@ -31,11 +31,38 @@
                 <form action="{{ route('organizer.web-settings.site-logo.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group" style="text-align:left;">
-                        <label class="form-label">Upload Logo Baru (.PNG/.ICO)</label>
-                        <input type="file" name="site_logo" class="form-input" required accept="image/png,image/x-icon,image/jpeg">
-                        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Akan otomatis terganti di Header, Footer, Favicon, dan OpenGraph/SEO. Disarankan menggunakan file <strong>.png</strong> transparan.</div>
+                        <label class="form-label">Upload Logo Utama (.PNG/.JPG)</label>
+                        <input type="file" name="site_logo" class="form-input" required accept="image/png,image/jpeg,image/webp">
+                        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Akan tampil di Header dan Footer. Disarankan menggunakan file <strong>.png</strong> transparan.</div>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-save"></i> Simpan Logo Utama</button>
+                </form>
+            </div>
+        </div>
+
+        {{-- Form Upload Favicon --}}
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Favicon Website (Ikon Tab)</h3>
+            </div>
+            <div style="padding:16px;text-align:center;">
+                @if(isset($siteFavicon))
+                <div style="background:#f8fafc;border:1px dashed var(--color-border);border-radius:12px;padding:16px;margin-bottom:16px;">
+                    <img src="{{ asset('storage/' . $siteFavicon) }}" alt="Favicon" style="max-height:64px;object-fit:contain;">
+                </div>
+                @else
+                <div style="background:#f8fafc;border:1px dashed var(--color-border);border-radius:12px;padding:16px;margin-bottom:16px;">
+                    <img src="{{ asset('images/logo.png') }}" alt="Favicon Default" style="max-height:64px;object-fit:contain;">
+                </div>
+                @endif
+                <form action="{{ route('organizer.web-settings.site-favicon.update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group" style="text-align:left;">
+                        <label class="form-label">Upload Favicon (.PNG/.ICO)</label>
+                        <input type="file" name="site_favicon" class="form-input" required accept="image/png,image/x-icon">
+                        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Ikon kecil yang tampil di tab browser. Gunakan rasio kotak 1:1.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-save"></i> Simpan Favicon</button>
                 </form>
             </div>
         </div>

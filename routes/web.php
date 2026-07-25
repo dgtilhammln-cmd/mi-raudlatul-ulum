@@ -143,6 +143,7 @@ Route::middleware(['auth', 'organizer'])->prefix('organizer')->name('organizer.'
 
     // Web Settings (Logos, Instagram, Footer)
     Route::post('web-settings/site-logo', [App\Http\Controllers\Organizer\WebSettingsController::class, 'updateSiteLogo'])->name('web-settings.site-logo.update');
+    Route::post('web-settings/site-favicon', [App\Http\Controllers\Organizer\WebSettingsController::class, 'updateSiteFavicon'])->name('web-settings.site-favicon.update');
     Route::get('web-settings/logos', [App\Http\Controllers\Organizer\WebSettingsController::class, 'logos'])->name('web-settings.logos');
     Route::post('web-settings/logos', [App\Http\Controllers\Organizer\WebSettingsController::class, 'storeLogo'])->name('web-settings.logos.store');
     Route::delete('web-settings/logos/{logo}', [App\Http\Controllers\Organizer\WebSettingsController::class, 'destroyLogo'])->name('web-settings.logos.destroy');

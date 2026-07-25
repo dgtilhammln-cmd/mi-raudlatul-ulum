@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @php $siteLogoPath = \App\Models\WebSetting::get('site_logo'); $faviconUrl = $siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo.png'); @endphp
+    @php
+        $siteFaviconPath = \App\Models\WebSetting::get('site_favicon');
+        $siteLogoPath = \App\Models\WebSetting::get('site_logo');
+        $faviconUrl = $siteFaviconPath ? asset('storage/' . $siteFaviconPath) : ($siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo.png'));
+    @endphp
     <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
     <title>@yield('title', 'MIS Raudlatul Ulum')</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -336,7 +340,7 @@
                         <i class="fas fa-chart-line"></i> Statistik
                     </a>
                     <a href="{{ route('organizer.certificates.index') }}" class="nav-item {{ request()->routeIs('organizer.certificates.*') ? 'active' : '' }}">
-                        <i class="fas fa-award"></i> E-Sertifikat
+                        <i class="fas fa-award"></i> E-Sertifikat / E-Raport
                     </a>
                     <a href="{{ route('organizer.leaderboard') }}" class="nav-item {{ request()->routeIs('organizer.leaderboard') ? 'active' : '' }}">
                         <i class="fas fa-trophy"></i> Leaderboard
@@ -379,7 +383,7 @@
                         <i class="fas fa-home"></i> Dashboard Peserta
                     </a>
                     <a href="{{ route('peserta.events') }}" class="nav-item {{ request()->routeIs('peserta.events') ? 'active' : '' }}">
-                        <i class="fas fa-certificate"></i> Event & Sertifikat
+                        <i class="fas fa-certificate"></i> Event & E-Raport
                     </a>
                     <a href="{{ route('peserta.leaderboard') }}" class="nav-item {{ request()->routeIs('peserta.leaderboard*') ? 'active' : '' }}">
                         <i class="fas fa-trophy"></i> Leaderboard
@@ -750,7 +754,7 @@ setInterval(fetchNotifications, 60000);
                 <i class="fas fa-home"></i><span>Dashboard</span>
             </a>
             <a href="{{ route('peserta.events') }}" class="bnav-item {{ request()->routeIs('peserta.events') ? 'active' : '' }}">
-                <i class="fas fa-certificate"></i><span>Sertifikat</span>
+                <i class="fas fa-certificate"></i><span>Sertif/Raport</span>
             </a>
             <a href="{{ route('peserta.leaderboard') }}" class="bnav-item {{ request()->routeIs('peserta.leaderboard*') ? 'active' : '' }}">
                 <i class="fas fa-trophy"></i><span>Leaderboard</span>

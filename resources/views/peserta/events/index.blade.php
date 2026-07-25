@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Event & Sertifikat')
-@section('page-title', 'Event & Sertifikat')
+@section('title', 'Event & E-Raport')
+@section('page-title', 'Event & E-Raport')
 
 @push('styles')
 <style>
@@ -191,8 +191,8 @@
     <div class="mobile-stack" style="position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
         <div>
             <div style="font-size:11px;font-weight:800;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">Dashboard Peserta</div>
-            <h1 style="font-size:28px;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2;">Event & Sertifikat</h1>
-            <p style="font-size:14px;color:rgba(255,255,255,.75);max-width:500px;line-height:1.4;">Riwayat keikutsertaan event kompetisi Anda dan sertifikat penghargaan yang telah diterbitkan.</p>
+            <h1 style="font-size:28px;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2;">Event & E-Raport</h1>
+            <p style="font-size:14px;color:rgba(255,255,255,.75);max-width:500px;line-height:1.4;">Riwayat keikutsertaan event kompetisi Anda dan sertifikat/raport penghargaan yang telah diterbitkan.</p>
         </div>
         <div class="mobile-wrap" style="display:flex;gap:20px;">
             <div style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 24px;text-align:center;">
@@ -201,7 +201,7 @@
             </div>
             <div style="background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 24px;text-align:center;">
                 <div style="font-size:28px;font-weight:900;color:#fff;">{{ $participants->sum(fn($p) => $p->certificates->count() + (!empty($p->certificate_link) ? 1 : 0)) }}</div>
-                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;">Sertifikat</div>
+                <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;">Sertif/Raport</div>
             </div>
         </div>
     </div>
@@ -262,7 +262,7 @@
         {{-- Certificates Section --}}
         <div>
             <div style="font-size:12px;font-weight:700;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">
-                <i class="fas fa-certificate" style="color:var(--color-primary);margin-right:6px;"></i> Sertifikat
+                <i class="fas fa-certificate" style="color:var(--color-primary);margin-right:6px;"></i> Sertifikat / E-Raport
             </div>
 
             @if(!$hasCert)
@@ -270,8 +270,8 @@
                     <div style="width:52px;height:52px;background:#f1f5f9;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
                         <i class="fas fa-hourglass-half" style="font-size:22px;color:#94a3b8;"></i>
                     </div>
-                    <h4 style="font-size:15px;font-weight:700;color:var(--color-text-secondary);margin-bottom:4px;">Sertifikat Belum Tersedia</h4>
-                    <p style="font-size:12px;color:var(--color-text-tertiary);">Penyelenggara belum menerbitkan sertifikat untuk event ini. Harap tunggu pengumuman dari panitia.</p>
+                    <h4 style="font-size:15px;font-weight:700;color:var(--color-text-secondary);margin-bottom:4px;">Sertifikat/Raport Belum Tersedia</h4>
+                    <p style="font-size:12px;color:var(--color-text-tertiary);">Penyelenggara belum menerbitkan sertifikat/raport untuk event ini. Harap tunggu pengumuman dari panitia.</p>
                 </div>
             @else
                 @if($hasCertificateFile)
@@ -283,7 +283,7 @@
                                 <i class="fas fa-award"></i>
                             </div>
                             <div class="cert-info">
-                                <h4>E-Sertifikat Resmi</h4>
+                                <h4>E-Sertifikat / Raport Resmi</h4>
                                 <p style="color:#92400e;">No. {{ $cert->certificate_number }}</p>
                                 @if($cert->issued_at)
                                     <p style="color:#a16207;font-size:11px;margin-top:2px;"><i class="far fa-calendar-check" style="margin-right:4px;"></i>Diterbitkan {{ $cert->issued_at->translatedFormat('d F Y') }}</p>

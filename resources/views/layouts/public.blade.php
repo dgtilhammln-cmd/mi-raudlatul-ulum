@@ -9,7 +9,11 @@
     <title>@yield('title', 'MIS Raudlatul Ulum')</title>
     
     <!-- Favicon -->
-    @php $siteLogoPath = \App\Models\WebSetting::get('site_logo'); $faviconUrl = $siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo.png'); @endphp
+    @php
+        $siteFaviconPath = \App\Models\WebSetting::get('site_favicon');
+        $siteLogoPath = \App\Models\WebSetting::get('site_logo');
+        $faviconUrl = $siteFaviconPath ? asset('storage/' . $siteFaviconPath) : ($siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo.png'));
+    @endphp
     <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">

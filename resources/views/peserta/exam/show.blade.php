@@ -345,19 +345,39 @@
                 audio.play().catch(e=>console.log("Audio play failed:", e));
 
                 if(d.auto_submit) {
-                    alert('Ujian Anda telah di-submit otomatis karena melanggar aturan secara berulang.');
-                    document.getElementById('submitForm').submit();
-                } else if(d.warning) {
-                    document.getElementById('warningText').innerHTML =
-                        `Anda terdeteksi melakukan tindakan yang dilarang (${d.total}/${d.max}).<br>Ujian akan di-submit otomatis jika Anda terus melanggar.`;
-                    document.getElementById('warningModal').style.display='flex';
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ type: type })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    document.getElementById('vCount').innerText = data.violation_count;
+                    if(typeof showAlert === 'function') {
+                        showAlert('⚠️ Peringatan Pelanggaran!', `Aktivitas mencurigakan terdeteksi (${data.violation_count}/${data.max_violations}). Jika melewati batas, ujian akan otomatis diakhiri.`, 'warning');
+                    } else {
+                        alert(`PERINGATAN! Aktivitas mencurigakan terdeteksi. Pelanggaran ke-${data.violation_count}`);
+                    }
+
+                    if(data.action === 'auto_submitted') {
+                        isSubmitting = true;
+                        window.location.href = "{{ route('peserta.result', $session->id) }}";
+                    }
                 }
-            }).catch(()=>{
-                violationInFlight = false;
+            })
+            .catch(err => console.error('Violation Error:', err))
+            .finally(() => {
+                // Beri jeda 1.5 detik sebelum bisa kirim pelanggaran lagi (debounce)
+                setTimeout(() => {
+                    violationInFlight = false;
+                }, 1500);
             });
         }
 
-        // ─── Focus-loss events (debounced together) ───
         document.addEventListener('visibilitychange', ()=>{ if(document.hidden) reportViolation('tab_switch'); });
         window.addEventListener('blur', ()=> reportViolation('window_blur'));
         document.addEventListener('fullscreenchange', ()=>{
@@ -368,14 +388,18 @@
         document.addEventListener('copy', e=>{ e.preventDefault(); reportViolation('copy_attempt'); });
         document.addEventListener('paste', e=>{ e.preventDefault(); reportViolation('paste_attempt'); });
         document.addEventListener('contextmenu', e=>{ e.preventDefault(); reportViolation('right_click'); });
+
         document.addEventListener('keydown', e=>{
-            if((e.ctrlKey||e.metaKey) && ['c','v','a','p','s','u'].includes(e.key.toLowerCase())) {
+            if((e.ctrlKey || e.metaKey) && ['c','v','x','p','s','u'].includes(e.key.toLowerCase())){
                 e.preventDefault(); reportViolation('keyboard_shortcut');
             }
-            if(e.key==='F12' || (e.ctrlKey && e.shiftKey && ['i','j','c'].includes(e.key.toLowerCase()))) {
+            if(e.key === 'F12'){
                 e.preventDefault(); reportViolation('keyboard_shortcut');
             }
         });
+        @else
+        console.log("Anti-cheat detector is disabled for this event.");
+        @endif
 
         // ─── Fullscreen on load ───
         document.addEventListener('DOMContentLoaded', ()=>{

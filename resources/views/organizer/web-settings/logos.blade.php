@@ -56,7 +56,7 @@
 
             <div class="form-group">
                 <label class="form-label">Nama Instansi / Sponsor <span class="text-danger">*</span></label>
-                <input type="text" name="name" class="form-input" required placeholder="Contoh: UIN Sunan Ampel">
+                <input type="text" name="name" class="form-input" required placeholder="Contoh: MI Raudlatul Ulum">
             </div>
 
             <div class="form-group" id="url-group" style="display:none;">

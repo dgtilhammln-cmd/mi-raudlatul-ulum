@@ -198,14 +198,14 @@
     <!-- Panel Kiri -->
     <div class="left-panel">
         <div class="panel-brand">
-            <img src="{{ asset('images/logo-uinsa.png') }}" alt="Logo UINSA">
+            <img src="{{ asset('images/logo-uinsa.png') }}" alt="Logo MI Raudlatul Ulum">
         </div>
         <div class="panel-headline">
             <h2>Kelola Olimpiade<br>dengan <span>Mudah & Cepat</span></h2>
             <p>Dashboard penyelenggara untuk mengelola event, soal, peserta, dan penilaian ujian kompetisi sejarah Islam secara terpusat.</p>
         </div>
         <div class="panel-footer">
-            &copy; {{ date('Y') }} HM SPI UIN Sunan Ampel Surabaya
+            &copy; {{ date('Y') }} HM SPI MI Raudlatul Ulum
         </div>
     </div>
 

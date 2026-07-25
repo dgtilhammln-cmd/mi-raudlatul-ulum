@@ -24,8 +24,8 @@
             
             <div class="form-group">
                 <label class="form-label">Deskripsi Singkat Acara</label>
-                <textarea name="description" class="form-input" rows="3" required placeholder="Musabaqah Tarikh Islam adalah...">{{ $footer['description'] ?? '' }}</textarea>
-                <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Tampil di bawah logo UINSA di footer kiri.</div>
+                <textarea name="description" class="form-input" rows="3" required placeholder="Platform Ujian Digital adalah...">{{ $footer['description'] ?? '' }}</textarea>
+                <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Tampil di bawah logo MI Raudlatul Ulum di footer kiri.</div>
             </div>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">

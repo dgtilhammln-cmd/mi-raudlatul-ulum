@@ -163,7 +163,7 @@
 
     @php
         $footerData = \App\Models\WebSetting::get('footer', [
-            'description' => 'Musabaqah Tarikh Islam adalah kompetisi sejarah peradaban Islam tingkat nasional.',
+            'description' => 'Platform Ujian Digital adalah kompetisi sejarah peradaban Islam tingkat nasional.',
             'phone' => '+62 812-3456-7890',
             'email' => 'panitia@musabaqahtarikhislam.com',
             'address' => 'Jl. A. Yani No.117, Surabaya',
@@ -175,9 +175,9 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <div class="footer-logo-box">
-                    <img src="{{ $faviconUrl }}" alt="Logo MTI" class="footer-logo">
+                    <img src="{{ $faviconUrl }}" alt="Logo Platform Ujian Digital" class="footer-logo">
                 </div>
-                <p class="footer-desc">{{ $footerData['description'] ?? 'Musabaqah Tarikh Islam adalah kompetisi sejarah peradaban Islam tingkat nasional.' }}</p>
+                <p class="footer-desc">{{ $footerData['description'] ?? 'Platform Ujian Digital adalah kompetisi sejarah peradaban Islam tingkat nasional.' }}</p>
                 <div class="footer-socials">
                     @if(!empty($footerData['socials']['instagram']))
                     <a href="{{ $footerData['socials']['instagram'] }}" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>

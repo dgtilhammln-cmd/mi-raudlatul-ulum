@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!localStorage.getItem(storageKey)) {
         const welcomeMessage = `
             <div style="text-align:center;margin-bottom:16px;line-height:1.6;">
-                Selamat datang di sistem CBT Premium Musabaqah Tarikh Islam! Kami sangat bangga Anda dapat berpartisipasi dalam ajang tingkat nasional ini.<br><br>
+                Selamat datang di sistem CBT Premium Platform Ujian Digital! Kami sangat bangga Anda dapat berpartisipasi dalam ajang tingkat nasional ini.<br><br>
                 Siapkan diri Anda dengan baik, pastikan koneksi internet stabil, dan jadilah sang juara!
             </div>
             <div style="text-align:center;padding-top:12px;border-top:1px solid #e5e7eb;font-size:11px;color:#6b7280;margin-top:16px;">

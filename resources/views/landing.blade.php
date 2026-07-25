@@ -6,22 +6,22 @@
     
     <!-- SEO & Meta Tags -->
     <title>CBT - MIS Raudlatul Ulum</title>
-    <meta name="description" content="Tingkatkan prestasimu di kompetisi sejarah peradaban Islam tingkat nasional. Uji wawasan, raih prestasi, & jadilah juara di Musabaqah Tarikh Islam UINSA.">
-    <meta name="keywords" content="olimpiade sejarah, sejarah islam, musabaqah tarikh islam, MTI UINSA, kompetisi sejarah nasional, olimpiade islam">
-    <meta name="author" content="HM SPI UINSA">
+    <meta name="description" content="Tingkatkan prestasimu di kompetisi sejarah peradaban Islam tingkat nasional. Uji wawasan, raih prestasi, & jadilah juara di Platform Ujian Digital MI Raudlatul Ulum.">
+    <meta name="keywords" content="olimpiade sejarah, sejarah islam, musabaqah tarikh islam, Platform Ujian Digital, kompetisi sejarah nasional, olimpiade islam">
+    <meta name="author" content="HM SPI MI Raudlatul Ulum">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:title" content="Musabaqah Tarikh Islam — Jadilah Juara">
+    <meta property="og:title" content="Platform Ujian Digital — Jadilah Juara">
     <meta property="og:description" content="Bangun prestasimu di kompetisi sejarah peradaban Islam tingkat nasional. Daftar sekarang!">
     @php $logoSetting = \App\Models\WebSetting::get('site_logo'); $ogImage = $logoSetting ? asset('storage/' . $logoSetting) : asset('images/logo-uinsa.png'); @endphp
     <meta property="og:image" content="{{ $ogImage }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Musabaqah Tarikh Islam — Jadilah Juara">
+    <meta property="twitter:title" content="Platform Ujian Digital — Jadilah Juara">
     <meta property="twitter:description" content="Bangun prestasimu di kompetisi sejarah peradaban Islam tingkat nasional.">
     <meta property="twitter:image" content="{{ $ogImage }}">
     
@@ -504,7 +504,7 @@
                 <div class="footer-logo-box">
                     <img src="{{ $footerLogo ? asset('storage/' . $footerLogo) : asset('images/logo-uinsa.png') }}" alt="Logo" class="footer-logo">
                 </div>
-                <p class="footer-desc">{{ $footer['description'] ?? 'Musabaqah Tarikh Islam adalah kompetisi sejarah peradaban Islam tingkat nasional.' }}</p>
+                <p class="footer-desc">{{ $footer['description'] ?? 'Platform Ujian Digital adalah kompetisi sejarah peradaban Islam tingkat nasional.' }}</p>
                 <div class="footer-socials">
                     @if(!empty($footer['socials']['instagram']))
                     <a href="{{ $footer['socials']['instagram'] }}" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>

@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', 'Live Leaderboard — Musabaqah Tarikh Islam')
+@section('title', 'Live Leaderboard — Platform Ujian Digital')
 @section('page-title', 'Live Leaderboard')
 @section('page-desc', 'Pilih event dan saksikan klasemen perolehan poin secara real-time.')
 @section('hide-header', true)

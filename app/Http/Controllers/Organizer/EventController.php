@@ -36,6 +36,7 @@ class EventController extends Controller
             'scoring_system'      => 'required|in:qualification,point',
             'bracket_mode'        => 'nullable|in:full,express|required_if:scoring_system,qualification',
             'leaderboard_visible' => 'nullable|boolean',
+            'anti_cheat_enabled'  => 'nullable|boolean',
         ]);
 
         $validated['organizer_id'] = $request->user()->id;
@@ -51,6 +52,7 @@ class EventController extends Controller
             'show_answer_review'       => false,
             'essay_review_hours'       => 24,
             'certificate_auto_publish' => true,
+            'anti_cheat_enabled'       => $request->boolean('anti_cheat_enabled', true),
         ];
 
         $event = Event::create($validated);
@@ -93,6 +95,7 @@ class EventController extends Controller
             'scoring_system'      => 'required|in:qualification,point',
             'bracket_mode'        => 'nullable|in:full,express|required_if:scoring_system,qualification',
             'leaderboard_visible' => 'nullable|boolean',
+            'anti_cheat_enabled'  => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('poster_image')) {
@@ -103,6 +106,10 @@ class EventController extends Controller
         }
 
         $validated['leaderboard_visible'] = $request->boolean('leaderboard_visible', true);
+        
+        $settings = $event->settings ?? [];
+        $settings['anti_cheat_enabled'] = $request->boolean('anti_cheat_enabled', true);
+        $validated['settings'] = $settings;
 
         $event->update($validated);
 

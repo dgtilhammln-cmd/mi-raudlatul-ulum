@@ -92,6 +92,19 @@
                         </div>
                     </label>
                 </div>
+
+                {{-- Anti-Cheat Detector --}}
+                <div class="form-group" style="grid-column:1/-1">
+                    <label style="display:flex;align-items:center;gap:12px;cursor:pointer;padding:16px;border:1px solid var(--color-border);border-radius:12px;background:var(--color-surface-hover);">
+                        <input type="checkbox" name="anti_cheat_enabled" value="1"
+                               {{ old('anti_cheat_enabled', $event->getSetting('anti_cheat_enabled', true)) ? 'checked' : '' }}
+                               style="width:20px;height:20px;accent-color:var(--color-primary);flex-shrink:0;">
+                        <div>
+                            <div style="font-weight:700;font-size:14px;"><i class="fas fa-shield-halved" style="color:var(--color-primary);margin-right:6px;"></i> Aktifkan Anti-Kecurangan (Anti-Cheat)</div>
+                            <div style="font-size:12px;color:var(--color-text-tertiary);margin-top:2px;">Deteksi pindah tab, copy-paste, dan hilangnya fokus layar saat ujian</div>
+                        </div>
+                    </label>
+                </div>
             </div>
             <div class="flex gap-2 mt-4">
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>

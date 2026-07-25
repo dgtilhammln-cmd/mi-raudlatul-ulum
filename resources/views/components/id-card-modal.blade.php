@@ -30,7 +30,7 @@
                 {{-- Logo Penyelenggara --}}
                 <div
                     style="background:#f8fafc;padding:6px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;border:1px solid #e2e8f0;">
-                    <img src="{{ asset('images/logo-uinsa.png') }}" alt="UINSA" style="height:20px;">
+                    <img src="{{ asset('images/logo-uinsa.png') }}" alt="MI Raudlatul Ulum" style="height:20px;">
                     <span style="font-size:12px;font-weight:800;color:#0f172a;letter-spacing:-.5px;">MIS Raudlatul Ulum</span>
                 </div>
 

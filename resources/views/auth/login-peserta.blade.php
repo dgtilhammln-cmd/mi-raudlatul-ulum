@@ -191,7 +191,7 @@
     <!-- Panel Kiri -->
     <div class="left-panel">
         <div class="panel-brand">
-            <img src="{{ asset('images/logo-uinsa.png') }}" alt="Logo UINSA">
+            <img src="{{ asset('images/logo-uinsa.png') }}" alt="Logo MI Raudlatul Ulum">
         </div>
         <div class="panel-headline">
             <h2>Uji Wawasan,<br>Raih Prestasi,<br>& <span>Jadilah Juara</span></h2>

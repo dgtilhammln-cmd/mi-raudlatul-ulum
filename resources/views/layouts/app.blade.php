@@ -320,7 +320,7 @@
                 @php $sidebarLogo = \App\Models\WebSetting::get('site_logo'); @endphp
                 <img src="{{ $sidebarLogo ? asset('storage/' . $sidebarLogo) : asset('images/logo-uinsa.png') }}" alt="Logo" style="height:36px;object-fit:contain;border-radius:8px;">
                 <div class="sidebar-brand-text">
-                    <h2>MTI Dashboard</h2>
+                    <h2>Platform Ujian Digital Dashboard</h2>
                     <small>Panel Pengelolaan</small>
                 </div>
             </div>

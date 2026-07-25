@@ -16,7 +16,7 @@
     <meta property="og:url" content="{{ url('/') }}">
     <meta property="og:title" content="Platform Ujian Digital — Jadilah Juara">
     <meta property="og:description" content="Bangun prestasimu di kompetisi sejarah peradaban Islam tingkat nasional. Daftar sekarang!">
-    @php $logoSetting = \App\Models\WebSetting::get('site_logo'); $ogImage = $logoSetting ? asset('storage/' . $logoSetting) : asset('images/logo-uinsa.png'); @endphp
+    @php $logoSetting = \App\Models\WebSetting::get('site_logo'); $ogImage = $logoSetting ? asset('storage/' . $logoSetting) : asset('images/logo.png'); @endphp
     <meta property="og:image" content="{{ $ogImage }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -33,7 +33,7 @@
 
     <!-- Favicon -->
     @php $faviconPath = \App\Models\WebSetting::get('site_logo'); @endphp
-    <link rel="icon" type="image/png" href="{{ $faviconPath ? asset('storage/' . $faviconPath) : asset('images/logo-uinsa.png') }}">
+    <link rel="icon" type="image/png" href="{{ $faviconPath ? asset('storage/' . $faviconPath) : asset('images/logo.png') }}">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -283,7 +283,7 @@
     <nav class="navbar">
         <a href="/" class="nav-logo">
             @php $siteLogo = \App\Models\WebSetting::get('site_logo'); @endphp
-            <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('images/logo-uinsa.png') }}" alt="Logo" style="height:36px;object-fit:contain;border-radius:8px;">
+            <img src="{{ $siteLogo ? asset('storage/' . $siteLogo) : asset('images/logo.png') }}" alt="Logo" style="height:36px;object-fit:contain;border-radius:8px;">
         </a>
         <div class="nav-links">
             <a href="#">Beranda</a>
@@ -502,7 +502,7 @@
             <div class="footer-brand">
                 @php $footerLogo = \App\Models\WebSetting::get('site_logo'); @endphp
                 <div class="footer-logo-box">
-                    <img src="{{ $footerLogo ? asset('storage/' . $footerLogo) : asset('images/logo-uinsa.png') }}" alt="Logo" class="footer-logo">
+                    <img src="{{ $footerLogo ? asset('storage/' . $footerLogo) : asset('images/logo.png') }}" alt="Logo" class="footer-logo">
                 </div>
                 <p class="footer-desc">{{ $footer['description'] ?? 'Platform Ujian Digital adalah kompetisi sejarah peradaban Islam tingkat nasional.' }}</p>
                 <div class="footer-socials">

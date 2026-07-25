@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin — MIS Raudlatul Ulum</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/logo-uinsa.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
@@ -198,7 +198,7 @@
     <!-- Panel Kiri -->
     <div class="left-panel">
         <div class="panel-brand">
-            <img src="{{ asset('images/logo-uinsa.png') }}" alt="Logo MI Raudlatul Ulum">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo MI Raudlatul Ulum">
         </div>
         <div class="panel-headline">
             <h2>Kelola Olimpiade<br>dengan <span>Mudah & Cepat</span></h2>

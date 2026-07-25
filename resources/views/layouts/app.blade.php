@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @php $siteLogoPath = \App\Models\WebSetting::get('site_logo'); $faviconUrl = $siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo-uinsa.png'); @endphp
+    @php $siteLogoPath = \App\Models\WebSetting::get('site_logo'); $faviconUrl = $siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo.png'); @endphp
     <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
     <title>@yield('title', 'MIS Raudlatul Ulum')</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -318,7 +318,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-brand">
                 @php $sidebarLogo = \App\Models\WebSetting::get('site_logo'); @endphp
-                <img src="{{ $sidebarLogo ? asset('storage/' . $sidebarLogo) : asset('images/logo-uinsa.png') }}" alt="Logo" style="height:36px;object-fit:contain;border-radius:8px;">
+                <img src="{{ $sidebarLogo ? asset('storage/' . $sidebarLogo) : asset('images/logo.png') }}" alt="Logo" style="height:36px;object-fit:contain;border-radius:8px;">
                 <div class="sidebar-brand-text">
                     <h2>Platform Ujian Digital Dashboard</h2>
                     <small>Panel Pengelolaan</small>

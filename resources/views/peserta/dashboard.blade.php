@@ -418,6 +418,7 @@ function confirmStart(e, form) {
     e.preventDefault();
     const msg = `<div style="text-align:left;line-height:1.6;font-size:14px;color:var(--color-text-secondary);">
         Mulai ujian sekarang? Timer akan langsung berjalan setelah Anda menekan tombol.<br><br>
+        @if($event->getSetting('anti_cheat_enabled', true))
         <div style="background:#fef2f2;border:1px solid #fecaca;padding:12px;border-radius:12px;color:#dc2626;margin-bottom:12px;">
             <b>⚠️ PERHATIAN: SISTEM AUTO-SUBMIT</b><br>
             Sistem memantau ketat aktivitas Anda. <b>Batas pelanggaran: maksimal 5x.</b><br>
@@ -427,6 +428,7 @@ function confirmStart(e, form) {
             • Melakukan copy/paste atau klik kanan<br><br>
             Jika melanggar batas, ujian akan <b>otomatis terkirim (auto-submit)</b>.
         </div>
+        @endif
         Pastikan koneksi internet stabil!
     </div>`;
     showConfirm('Konfirmasi Ujian', msg, 'warning').then(res => {

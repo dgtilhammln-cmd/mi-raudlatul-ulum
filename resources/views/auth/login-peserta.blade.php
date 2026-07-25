@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @php
+        $siteLogoPath = \App\Models\WebSetting::get('site_logo');
+        $siteFaviconPath = \App\Models\WebSetting::get('site_favicon');
+        $logoUrl = $siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo.png');
+        $faviconUrl = $siteFaviconPath ? asset('storage/' . $siteFaviconPath) : $logoUrl;
+    @endphp
     <title>Login Siswa — MIS Raudlatul Ulum</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
@@ -191,11 +197,11 @@
     <!-- Panel Kiri -->
     <div class="left-panel">
         <div class="panel-brand">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo MI Raudlatul Ulum">
+            <img src="{{ $logoUrl }}" alt="Logo MI Raudlatul Ulum">
         </div>
         <div class="panel-headline">
             <h2>Uji Wawasan,<br>Raih Prestasi,<br>& <span>Jadilah Juara</span></h2>
-            <p>Bangun prestasimu di kompetisi sejarah peradaban Islam tingkat nasional yang terorganisir dan terpercaya.</p>
+            <p>Bangun prestasimu di ujian digital tingkat sekolah yang terorganisir dan terpercaya.</p>
         </div>
         <div class="panel-stats">
             <div class="stat">

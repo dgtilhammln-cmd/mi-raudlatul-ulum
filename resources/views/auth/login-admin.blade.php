@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @php
+        $siteLogoPath = \App\Models\WebSetting::get('site_logo');
+        $siteFaviconPath = \App\Models\WebSetting::get('site_favicon');
+        $logoUrl = $siteLogoPath ? asset('storage/' . $siteLogoPath) : asset('images/logo.png');
+        $faviconUrl = $siteFaviconPath ? asset('storage/' . $siteFaviconPath) : $logoUrl;
+    @endphp
     <title>Login Admin — MIS Raudlatul Ulum</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ $faviconUrl }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
@@ -198,14 +204,14 @@
     <!-- Panel Kiri -->
     <div class="left-panel">
         <div class="panel-brand">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo MI Raudlatul Ulum">
+            <img src="{{ $logoUrl }}" alt="Logo MI Raudlatul Ulum">
         </div>
         <div class="panel-headline">
             <h2>Kelola Olimpiade<br>dengan <span>Mudah & Cepat</span></h2>
-            <p>Dashboard penyelenggara untuk mengelola event, soal, peserta, dan penilaian ujian kompetisi sejarah Islam secara terpusat.</p>
+            <p>Dashboard penyelenggara untuk mengelola event, soal, peserta, dan penilaian ujian ujian digital secara terpusat.</p>
         </div>
         <div class="panel-footer">
-            &copy; {{ date('Y') }} HM SPI MI Raudlatul Ulum
+            &copy; {{ date('Y') }} MI Raudlatul Ulum
         </div>
     </div>
 
@@ -228,7 +234,7 @@
             @csrf
             <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-input" placeholder="admin@musabaqahtarikhislam.com" required value="{{ old('email') }}" autofocus>
+                <input type="email" name="email" class="form-input" placeholder="admin@miraudlatululum" required value="{{ old('email') }}" autofocus>
             </div>
             <div class="form-group">
                 <label class="form-label">Password</label>

@@ -63,7 +63,7 @@ class LoginController extends Controller
     public function loginAdmin(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|string|max:255',
             'password' => 'required',
         ]);
 

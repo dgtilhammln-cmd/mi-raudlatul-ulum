@@ -234,7 +234,7 @@
             @csrf
             <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-input" placeholder="admin@miraudlatululum" required value="{{ old('email') }}" autofocus>
+                <input type="text" name="email" class="form-input" placeholder="admin@miraudlatululum" required value="{{ old('email') }}" autofocus>
             </div>
             <div class="form-group">
                 <label class="form-label">Password</label>

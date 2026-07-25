@@ -1,0 +1,6 @@
+@extends('errors::layout')
+@section('title', 'Server Error')
+@section('code', '500')
+@section('message', 'Internal Server Error')
+@section('icon', 'fas fa-server')
+@section('description', 'Maaf, terjadi kesalahan pada server kami. Tim teknis kami telah diberitahu dan sedang memperbaikinya. Silakan coba beberapa saat lagi.')

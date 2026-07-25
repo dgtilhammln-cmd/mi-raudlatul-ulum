@@ -1,0 +1,6 @@
+@extends('errors::layout')
+@section('title', 'Too Many Requests')
+@section('code', '429')
+@section('message', 'Terlalu Banyak Permintaan')
+@section('icon', 'fas fa-tachometer-alt')
+@section('description', 'Anda mengirimkan terlalu banyak permintaan dalam waktu singkat. Mohon istirahat sejenak dan coba lagi dalam beberapa menit.')

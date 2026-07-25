@@ -1,0 +1,6 @@
+@extends('errors::layout')
+@section('title', 'Service Unavailable')
+@section('code', '503')
+@section('message', 'Layanan Sedang Sibuk / Maintenance')
+@section('icon', 'fas fa-tools')
+@section('description', 'Server sedang mengalami lonjakan pengunjung yang tinggi atau sedang dalam pemeliharaan rutin. Mohon tunggu beberapa menit dan coba lagi.')

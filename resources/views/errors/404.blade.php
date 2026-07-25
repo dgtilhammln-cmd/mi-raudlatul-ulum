@@ -1,0 +1,6 @@
+@extends('errors::layout')
+@section('title', 'Halaman Tidak Ditemukan')
+@section('code', '404')
+@section('message', 'Oops! Halaman Tidak Ditemukan')
+@section('icon', 'fas fa-map-signs')
+@section('description', 'Maaf, halaman yang Anda cari mungkin telah dihapus, diubah namanya, atau tidak pernah ada.')

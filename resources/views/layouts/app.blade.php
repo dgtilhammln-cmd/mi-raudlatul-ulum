@@ -370,7 +370,7 @@
                         <i class="fas fa-users-cog"></i> Anggota <span style="margin-left:auto;font-size:9px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:2px 6px;border-radius:4px;font-weight:800;">PRO</span>
                     </a>
                     <a href="{{ route('organizer.web-settings.logos') }}" class="nav-item {{ request()->routeIs('organizer.web-settings.logos') ? 'active' : '' }}">
-                        <i class="fas fa-handshake"></i> Partner & Sponsor
+                        <i class="fas fa-handshake"></i> Logo & Sponsor
                     </a>
                     <a href="{{ route('organizer.web-settings.instagram') }}" class="nav-item {{ request()->routeIs('organizer.web-settings.instagram') ? 'active' : '' }}">
                         <i class="fab fa-instagram"></i> Instagram Feeds

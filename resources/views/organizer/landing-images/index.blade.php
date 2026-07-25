@@ -42,7 +42,7 @@
                 <div class="badge badge-info mb-4" style="display:flex;justify-content:center;font-size:10px;"><i class="fas fa-arrow-down" style="margin-right:6px"></i> Kiri (Animasi Turun)</div>
                 @foreach($images->where('column_position', 'left') as $img)
                     <div style="position:relative;margin-bottom:16px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
-                        <img src="{{ Storage::url($img->image_path) }}" alt="Img" style="width:100%;aspect-ratio:4/5;object-fit:cover;display:block;">
+                        <img src="{{ asset('storage/' . $img->image_path) }}" alt="Img" style="width:100%;aspect-ratio:4/5;object-fit:cover;display:block;">
                         <form action="{{ route('organizer.landing-images.destroy', $img) }}" method="POST" style="position:absolute;top:8px;right:8px;" data-confirm="Hapus foto ini?">
                             @csrf @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" style="padding:4px 8px;border-radius:6px;"><i class="fas fa-trash"></i></button>
@@ -59,7 +59,7 @@
                 <div class="badge badge-warning mb-4" style="display:flex;justify-content:center;font-size:10px;"><i class="fas fa-arrow-up" style="margin-right:6px"></i> Kanan (Animasi Naik)</div>
                 @foreach($images->where('column_position', 'right') as $img)
                     <div style="position:relative;margin-bottom:16px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow-sm);">
-                        <img src="{{ Storage::url($img->image_path) }}" alt="Img" style="width:100%;aspect-ratio:4/5;object-fit:cover;display:block;">
+                        <img src="{{ asset('storage/' . $img->image_path) }}" alt="Img" style="width:100%;aspect-ratio:4/5;object-fit:cover;display:block;">
                         <form action="{{ route('organizer.landing-images.destroy', $img) }}" method="POST" style="position:absolute;top:8px;right:8px;" data-confirm="Hapus foto ini?">
                             @csrf @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" style="padding:4px 8px;border-radius:6px;"><i class="fas fa-trash"></i></button>

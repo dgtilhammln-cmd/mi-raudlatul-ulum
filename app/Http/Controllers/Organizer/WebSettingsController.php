@@ -26,7 +26,10 @@ class WebSettingsController extends Controller
     public function updateSiteLogo(Request $request)
     {
         $request->validate([
-            'site_logo' => 'required|file|mimes:png,jpg,jpeg,ico|max:2048',
+            'site_logo' => 'required|file|mimes:png,jpg,jpeg,ico|max:5120',
+        ], [
+            'site_logo.max' => 'Ukuran file logo maksimal 5 MB.',
+            'site_logo.mimes' => 'Format logo harus png, jpg, jpeg, atau ico.'
         ]);
 
         $file = $request->file('site_logo');
@@ -51,7 +54,10 @@ class WebSettingsController extends Controller
     public function updateSiteFavicon(Request $request)
     {
         $request->validate([
-            'site_favicon' => 'required|file|mimes:png,ico|max:1024',
+            'site_favicon' => 'required|file|mimes:png,ico|max:2048',
+        ], [
+            'site_favicon.max' => 'Ukuran file favicon maksimal 2 MB.',
+            'site_favicon.mimes' => 'Format favicon harus png atau ico.'
         ]);
 
         $file = $request->file('site_favicon');

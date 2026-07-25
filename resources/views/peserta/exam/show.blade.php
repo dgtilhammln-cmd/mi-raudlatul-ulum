@@ -124,9 +124,11 @@
                 <span style="font-size:14px;font-weight:800;color:var(--kinetic-dark)">
                     <i class="fas fa-user-circle" style="color:var(--kinetic-blue);font-size:18px;margin-right:4px;vertical-align:middle;"></i> {{ auth()->user()->name }}
                 </span>
+                @if($session->round->event->getSetting('anti_cheat_enabled', true))
                 <div class="violation-counter" id="violationCounter">
                     <i class="fas fa-shield-halved"></i> Pelanggaran: <span id="vCount">{{ $session->violation_count }}</span>/{{ $session->round->auto_submit_threshold }}
                 </div>
+                @endif
             </div>
 
             <div class="exam-content">

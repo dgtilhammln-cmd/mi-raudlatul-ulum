@@ -76,8 +76,9 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
+            $request->session()->forget('url.intended'); // Clear any saved redirect
             Auth::user()->update(['last_login_at' => now()]);
-            return redirect()->intended(route('organizer.dashboard'));
+            return redirect()->route('organizer.dashboard');
         }
 
         return back()->withErrors(['login' => 'Email atau password salah.'])->withInput();

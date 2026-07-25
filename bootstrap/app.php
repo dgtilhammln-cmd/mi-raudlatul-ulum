@@ -20,6 +20,18 @@ return Application::configure(basePath: dirname(__DIR__))
             'organizer' => \App\Http\Middleware\EnsureOrganizer::class,
             'participant' => \App\Http\Middleware\EnsureParticipant::class,
         ]);
+
+        // Redirect authenticated users away from guest routes based on role
+        $middleware->redirectUsersTo(function (\Illuminate\Http\Request $request) {
+            $user = $request->user();
+            if ($user && $user->role === 'organizer') {
+                return route('organizer.dashboard');
+            }
+            if ($user && $user->role === 'participant') {
+                return route('peserta.dashboard');
+            }
+            return '/';
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

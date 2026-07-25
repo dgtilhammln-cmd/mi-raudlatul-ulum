@@ -303,7 +303,8 @@
          * fullscreen_exit) di-group dengan cooldown 3 detik.
          * Event lain (copy, paste, dll) tetap langsung tercatat.
          */
-
+        
+        @if($session->round->event->getSetting('anti_cheat_enabled', true))
         // Track focus-loss cooldown
         let lastFocusLossTime = 0;
         const FOCUS_LOSS_COOLDOWN_MS = 3000; // 3 seconds
